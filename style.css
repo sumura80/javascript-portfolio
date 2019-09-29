@@ -2,6 +2,20 @@
     background-color: #FDFDFD;
     padding:5px;
 }
+/* Scroll top*/
+.toTopBtn{
+  font-size: 60px;
+  color: #C8C8D0;
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  right:10px;
+  display:  inline-block;
+  z-index: 1;
+  display: none;
+  
+}
+
 
  .task{
   margin-top: 50px;

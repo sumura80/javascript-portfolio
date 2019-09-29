@@ -19,6 +19,21 @@ document.getElementById('timeDisplay').innerHTML = wholeTime;
 }
 timer = setInterval('settingTime()',1000);
 
+//-----------------------------------------------------
+//ScrollTop
+topBtn = document.querySelector('#toTopBtn');
+window.onscroll = function(){toTopFunction()};
+function toTopFunction(){
+	if(document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000){
+		topBtn.style.display = "block";
+	}else{
+		topBtn.style.display = "none";
+	}
+}
+document.querySelector('#toTopBtn').addEventListener('click',function(e){
+  document.documentElement.scrollTop = 0;
+  
+});
 
 //-----------------------------------------------------
 //おみくじ
