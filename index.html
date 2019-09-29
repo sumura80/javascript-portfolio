@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Css-->
+    <link href="style.css" rel="stylesheet" >
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome 5-->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>JavaScript ポートフォリオ</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light" 
+        style="background-color:#ABC2B1">
+      <a class="navbar-brand" href="#">
+        <img src="javascript_img.png" alt="javascript icon image" class="mr-2">
+        JavaScript ポートフォリオ
+      </a>
+    </nav>
+
+
+    <div class="container" id="wrapMain">
+      <!-- 時間の表示-->
+      <div id="timeDisplay" class="timeDisplay float-right mr-2" >現在の時刻： </div>
+      <br>
+
+      <!--おみくじ-->
+      <div class="task container">
+        <h3 class="task_title">おみくじ</h3>
+        <p>下記のボタンを押して今日の運勢を占いましょう！</p>
+        <button type="button" class="btn btn-info" id="omikuji">今日の運勢を占う</button>
+        <p class="omikujiResult mt-4" id="omikujiResult">　</p>
+
+
+
+
+      </div>
+
+      <!--数当て-->
+      <div class="task container">
+          <h3 class="task_title">数予想ゲーム</h3>
+          <form name="numberQuiz">
+            <div class="form-group">
+              <label for="numberQuizTitle">1〜3までの数字を入力してください。</label>
+              <input name="numberInput" type="text" class="form-control" id="numberQuizInput" placeholder="例. 1">
+              <br>
+              <div class="numberResult mb-4">結果：<span id="numberResultPos" ></span></div>
+            <button type="button" id="numberQuizBtn" class="btn btn-primary">答え合わせ</button>
+          </form>
+        </div>
+
+
+
+   　<!--箱の色を変更-->
+      <div class="task container">
+          <h3 class="task_title">箱の色を変更</h3>
+           <div class="boxChangeTitle">箱の色を選択してください。</div>
+          <div class="colorBox">
+              <div class="card" >
+                  <div class="card-header">
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#dc3445' ; document.querySelector('#card-body').innerHTML='これは赤です。' "  class="btn btn-danger btn-sm">赤</button>
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#2a7bff' ; document.querySelector('#card-body').innerHTML='これは青です。' " class="btn btn-primary btn-sm">青</button>
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#6c757c' ; document.querySelector('#card-body').innerHTML='これは灰色です。' " class="btn btn-secondary btn-sm">灰色</button>
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#28a745' ; document.querySelector('#card-body').innerHTML='これは緑です。' " class="btn btn-success btn-sm">緑</button>
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#fbc108' ; document.querySelector('#card-body').innerHTML='これは黄色です。' " class="btn btn-warning btn-sm">黄色</button>
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#33a9bd' ; document.querySelector('#card-body').innerHTML='これは青みどりです。' " class="btn btn-info btn-sm">青みどり</button>
+                    <button onclick="document.querySelector('#card-body').style.backgroundColor='#FFFFFF' ; document.querySelector('#card-body').innerHTML='これは白です。' " class="btn btn-light btn-sm">白</button>
+                  </div>
+                  <div class="card-body" id="card-body">
+                    <p class="card-text">これは白です。</p>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+
+
+      <!--画像のスライド-->
+      <div class="task container">
+        <h3 class="task_title">画像のスライドショー</h3>
+        <img src="image1.png" alt="slide show" class="rounded img-fluid" name="slideShow">
+
+      </div>
+
+
+          <!--オリンピックまでのカウントダウン-->
+         <div class="task container ">
+             <h3 class="task_title">東京オリンピックまでカウントダウン</h3>
+            <div class="displayWrap">
+              <div id="countDownDisplay">残り： <span id="olympicCountDown"></span>日
+                 <span id="olympicCountDownHours"></span>時間
+                <br><span id="olympicCountDownMinutes"></span>分
+                 <span id="olympicCountDownSeconds"></span>秒
+              </div>  
+            </div> 
+          </div>
+
+
+      <!--LIKE BUTTON-->
+         <div class="task container ">
+          <h3 class="task_title">これまでの評価</h3>
+          <p>今の所このポートフォリオを楽しんでいただけておりますでしょうか？</p>
+          <i class="far fa-thumbs-up" onclick="likeDislike()" id="far"></i> 
+          <div class="reallyDislike" id="reallyDislike">え？本当ですか？</div>
+
+       </div>
+
+
+      <!--TODOリスト-->
+      <div class="task container" style="padding-bottom: 60px" >
+        <h3 class="task_title">TODOリスト</h3>
+        <div id="todo_message">必要なタスクを追加してください。</div>
+        <form class="form-inline mt-3" id="addForm">
+            <div class="form-group mb-2"  style="margin-right: 10px" >
+              <input type="text" class="form-control" id="taskInput"
+              placeholder="タスクを入力">
+            </div>
+            <button id="taskAdd" type="submit" class="btn btn-primary mb-2">タスクを追加する</button>
+          </form>
+
+            <h4 class="mt-4">タスクの内容</h4>
+          <ul class="list-group" id="items">
+            <li class="list-group-item">メール確認 <button class="btn btn-warning float-right delete">削除</button></li>
+            <li class="list-group-item">顧客と打ち合わせ <button class="btn btn-warning float-right delete">削除</button></li>
+            <li class="list-group-item">セミナー参加 <button class="btn btn-warning float-right delete">削除</button></li>
+          </ul>          
+      </div>
+
+      <!--スライドショー-->
+      <div class="task container ">
+        <h3 class="task_title">ここで<span class="text-danger">英語</span>の問題です！</h3>
+      <p>英語で犬の複数形はdogs、ネコはcats、それでは羊はなんでしょう？</p>
+      <form class="form-inline mt-3" id="pluralQuizForm">
+          <div class="form-group mb-2"  style="margin-right: 10px" >
+            <input type="text" class="form-control" id="pluralQuizInput"
+            placeholder="羊の複数形を入力">
+          </div>
+          <button id="pluralAnswerBtn" type="submit" class="btn btn-outline-success mb-2">答えを確認</button>
+        </form>　 
+        <div id="englishQuizAnswerDisplay"></div>
+      </div>
+
+
+
+      <!--スライドショー-->
+      <div class="task container ">
+          <h3>自分のアプリ紹介</h3>
+          　<p>これまでのアプリをまとめてみました！</p>
+          <form name="appIntroduction">
+              <div class="form-group">
+              <label for="appOptions">下記から画像を選択してください</label>
+                <select class="form-control" name="appOptions" id="annOptions" onchange="introImage()">
+                  <option value="myApp01.png" src="https://www.msn.com/ja-jp">Lifeabroad</option>
+                  <option value="myApp02.png">Medplus</option>
+                  <option value="myApp03.png">ポートフォリオ１</option>
+                  <option value="myApp04.png">ポートフォリオ２</option>
+                  <option value="myApp05.png">自己紹介</option>
+                </select>
+              </div><!-- End of class="form-group" -->
+          </form>
+          <img src="myApp01.png" class="img-fluid" alt="slideImg" name="introImg" > 
+      </div>
+
+
+
+
+      <!--BMIの計算-->
+      <div class="task container">
+          <h3 class="task_title">BMIの計算をしましょう</h3>
+          <img src="bmi_img.png" alt="slide show" class="rounded img-fluid" name="bmiCheck">
+          <p class="mt-4">体重と身長の関係から、肥満度を示す体格指数(BMI)と適正体重を計算します。</p>
+          <div class="formSpice" style="background-color: #C8F9CC;padding: 10px;">
+            <form name="bmiForm" class="mt-4" class="bmiFormClass">
+            　<label class="mr-2"><input type="radio" name="bmiRadio"> 女性</label>
+              <label><input type="radio" name="bmiRadio"> 男性</label>     
+            
+            
+            <div class="form-group row mt-4">
+                <label for="bmiHeight" class="col-sm-2 col-form-label">身長</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="bmiHeight" placeholder="160">
+                </div>
+                <div class="col-sm-1">Cm</div>
+              </div>
+
+
+              <div class="form-group row">
+                  <label for="bmiWeight" class="col-sm-2 col-form-label">体重</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="bmiWeight" placeholder="72">
+ 
+                  </div>
+                  <div class="col-sm-1">Kg</div>
+                </div>
+                <div class="buttons mt-4" style="margin: 30px 0 0 100px" >
+                  <button id="button" class="btn btn-primary mr-2">計算する</button>
+                  <button  type="button" id="bmiClearBtn" class="btn btn-warning">クリア</button>
+                </div>   
+
+            </form>
+
+
+          <div class="bmiResultSection" >
+            <h3>診断結果: <span id="inputWarning" style="font-size: 20px;" class="redText"></span></h3>
+            <div>あなたのBMI数値：<span id="bmiResultNumber"></span></div>
+            <div>あなたの適正体重：<span id="bmiResultRecommendeWeight"></span></div>
+            <div>肥満度：<span id="bmiResultObecity"></span></div>
+
+          </div>
+          </div><!-- end of formSpice -->
+       </div>
+
+
+
+
+      <!--旅行注文書-->
+      <div class="task container ">
+        <h3 class="task_title">旅行注文書</h3>
+        <img src="continent.jpg" alt="continent image" class="img-fluid"><br>
+        <p class="lead">注文内容を記入してください</p>
+        <div class="orderWrap">
+          <form name="orderForm">
+              <div class="form-group">
+                <label for="orderOptions">旅行先を選択</label>
+                <select class="form-control" name="orderOptions" id="orderOptions" >
+                  <option value="asia">アジア (78,000円)</option>
+                  <option value="northamerica">北米 (179,000円)</option>
+                  <option value="southamerica">南米 (164,000円)</option>
+                  <option value="australia">オーストラリア (95,000円)</option>
+                  <option value="europe">ヨーロッパ (183,000円)</option>
+                  <option value="africa">アフリカ (212,000円)</option>
+                </select>
+              </div>
+          </form>
+
+
+          <form name="addressForm">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="orderLastName">姓</label>
+                  <input type="text" class="form-control" id="orderLastName">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="orderFirstName">名</label>
+                  <input type="text" class="form-control" id="orderFirstName" >
+                </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">郵便番号</label>
+                    <input type="text" class="form-control" id="inputZip">
+                  </div>
+                  <div class="form-group col-md-10">
+                      <label for="inputAddress">住所</label>
+                      <input type="text" class="form-control" id="inputAddress" placeholder="1丁目2番3号">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="orderEmail">Eメール</label>
+                      <input type="email" class="form-control" id="orderEmail" placeholder="Eメール">
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="orderPhoneNumber">TEL</label>
+                      <input type="phone" class="form-control" id="orderPhoneNumber" >
+                  </div>
+              </div>
+          </form>
+
+          <hr>
+
+          <div class="orderPayment mt-2">
+            <p class="lead">支払い方法</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="creditcard" value="creditcard" checked onchange="creditSeparation()";>
+                <label class="form-check-label" for="creditcard">クレジットカード</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="banktransfer" value="banktransfer" onchange="bankSeparation()";>
+                <label class="form-check-label" for="banktransfer">銀行振込</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="konbini" value="konbini" onchange="konbiniSeparation()";>
+                <label class="form-check-label" for="konbini">コンビニ払い</label>
+              </div>
+
+            <div  id="creditBox" class="active">
+            <form class="mt-4">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="creditName">クレジットカード会社</label>
+                      <select class="form-control" id="creditName">
+                          <option>Visa</option>
+                          <option>MasterCard</option>
+                          <option>アメリカン・エキスプレス</option>
+                          <option>JCB</option>
+                          <option>ジャックスカード</option>
+                        </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="securityCode">セキュリティコード</label>
+                    <input type="text" class="form-control" id="securityCode">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="creditcardExpire">有効期限</label>
+                      <input type="text" class="form-control" id="creditcardExpire" placeholder="09/2022">
+                    </div>
+                </div><!-- end form-row-->
+            </form>
+          </div><!-- end of id="creditBox" class="active"-->
+
+
+
+          <div id="bankwire" class="passive">
+            <form class="mt-4" >
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="bankName">銀行名</label>
+                      <select class="form-control" id="bankName">
+                          <option>三菱UFJ銀行</option>
+                          <option>りそな銀行</option>
+                          <option>みずほ銀行</option>
+                          <option>三井住友銀行</option>
+                          <option>新生銀行</option>
+                        </select>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="paymentName">登録者名</label>
+                    <input type="text" class="form-control" id="paymentName" placeholder="SUZUKI TARO">
+                  </div>
+                
+                </div><!-- end form-row-->
+            </form>
+          </div>
+
+
+
+          <div id="konbiniBox" class="passive">
+            <form class="mt-4" >
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="konbiniOptions">コンビニエンスストア</label>
+                      <select class="form-control" id="konbiniOptions">
+                          <option>セブンイレブン</option>
+                          <option>ローソン</option>
+                          <option>ファミリーマート</option>
+                          <option>ミニストップ</option>
+                          <option>サークルＫ</option>
+                        </select>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="storeName">店舗名</label>
+                    <input type="text" class="form-control" id="storeName" placeholder="新宿店">
+                  </div>
+                
+                </div><!-- end form-row-->
+            </form>
+          </div>
+        </div> <!-- end of orderPayment -->
+      </div><!-- end of orderWrap-->
+
+      <div class="confirmPrice mt-4">
+        <h3>金額の確認</h3><br>
+        <div class="direction mb-4">
+          <h5>行き先：<span id="directionDisplay">旅行先を選択して下さい</span></h5>
+        </div>
+        <form name="orderPriceBox">
+            <div class="form-group row">
+              <label for="subtotal" class="col-sm-2 col-form-label">小計</label>
+              <div class="col-sm-4">
+                <input disabled type="text" class="form-control" id="subtotal" value="78,000">
+              </div>
+              <div class="col-sm-1 mt-2">
+                  円
+              </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="orderTax" class="col-sm-2 col-form-label">税額 (10%)</label>
+                <div class="col-sm-4">
+                  <input disabled type="text" class="form-control" id="orderTax" value="7,800">
+                </div>
+                <div class="col-sm-1 mt-2">
+                    円
+                </div>
+            </div>
+
+
+            <br>
+            ※海外旅行保険に申し込むか選択して下さい<br>
+            
+              <div class="form-check form-check-inline">
+                <input onchange="insuranceChange()" class="form-check-input" type="radio" name="insuranceChoice" id="insuranceNotApply" value="optionNo" checked>
+                <label class="form-check-label" for="insuranceNotApply">申し込まない</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input onchange="insuranceChange()" class="form-check-input" type="radio" name="insuranceChoice" id="insuranceApply" value="optionYes">
+                <label class="form-check-label" for="insuranceApply">申し込む (49,800円)</label>
+              </div><br><br>
+
+            <div class="form-group row">
+                <label for="orderShipping" class="col-sm-2 col-form-label">海外旅行保険</label>
+                <div class="col-sm-4">
+                  <input disabled type="text" class="form-control" id="orderShipping" value="0">
+                </div>
+                <div class="col-sm-1 mt-2">
+                    円
+                </div>
+            </div>
+            <br>
+
+
+                 
+                <div class="form-group row">
+                  <label for="subtotal" class="col-sm-2 col-form-label">合計金額</label>
+                  <div class="col-sm-4">
+                    <input disabled type="text" class="form-control" id="total" value="85,800">
+                  </div>
+                  <div class="col-sm-1 mt-2">
+                      円
+                  </div>
+                </div>
+                <hr>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="memberDiscount" value="option1">
+                <label class="form-check-label text-danger" for="memberDiscount">会員 <span class="ml-2">（会員のお客様は40％割引がありますので、チェックを入れて下さい）</span></label>          
+              </div>
+              <br>
+
+              <div class="form-group row">
+                  <label for="memberPriceDisplay" class="col-sm-2 col-form-label">会員価格</label>
+                  <div class="col-sm-4">
+                    <input disabled type="text" class="form-control" id="memberPriceDisplay">
+                  </div>
+                  <div class="col-sm-1 mt-2">
+                      円
+                  </div>
+              </div>
+
+
+              <form class="form-inline" name="memberPassword">       
+                  <div class="form-group row">
+                      <label for="pwInput" class="col-sm-2 col-form-label">パスワード</label>
+                      <div class="col-sm-4">
+                        <input type="password" class="form-control" id="pwInput" placeholder="パスワード">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="pwInputAgain" class="col-sm-2 col-form-label">確認パスワード</label>
+                        <div class="col-sm-4">
+                          <input type="password" class="form-control" id="pwInputAgain" placeholder="パスワード">
+                        </div>
+                        
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input " type="checkbox" id="pwDisplay">
+                            <label class="form-check-label"  for="pwDisplay">
+                               パスワードを表示
+                            </label>
+                        </div>
+                    </div>         
+                  
+              </form>
+
+              <button change="orderPress();" class="btn btn-warning mx-auto d-block"  id="orderBtn" type="button" style="margin-top: 60px;width: 300px;margin-bottom: 30px;">送信する</button>
+              <div class="sendThanks text-center passive" id="orderDone">ご注文を承りました。</div>
+              <br>
+          </form><!-- end of orderPriceBox-->
+      </div><!-- end confirmPrice -->
+      <br>
+      <div class="lead text-center text-danger passive" id="thanksMsg">お忙しい中、ポートフォリオのご確認ありがとうございました。</div>
+      <br><br><br>
+    </div><!-- end of task container-->
+
+　
+
+
+      
+    </div><!-- end of wrapMain-->
+    <script src="main.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

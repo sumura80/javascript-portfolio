@@ -1,0 +1,101 @@
+#wrapMain{
+    background-color: #FDFDFD;
+    padding:5px;
+}
+
+ .task{
+  margin-top: 50px;
+  border-top: 4px solid #338BB0;
+  padding-top: 20px;
+  margin-bottom: 20px;
+ }
+
+ .task_title{
+   padding-bottom: 20px;
+ }
+
+ .alert-success{
+  background-color: #d4edda;
+ }
+ .alert-danger{
+   background-color: #f8d7da;
+
+ }
+ .alert-default{
+   background:"#FFF"
+ }
+
+ .displayWrap{
+  background-image: url('olympic_countdown.jpg');
+  background-repeat: no-repeat;
+  height:400px;
+  background-size:contain;
+ }
+
+ #countDownDisplay{
+   position:relative;
+   top: 48px;    
+   left: 80px;
+   font-size: 28px;
+   background: rgba(255,243,205,0.6);
+   width: 300px;
+   padding-left: 10px;
+    
+ }
+
+ .redText{
+   color:red;
+ }
+ 
+
+ .bmiResultSection{
+   margin-top: 30px;
+   font-size: 1.2em;
+ }
+
+ .redwarning{
+  color:red;
+ }
+
+ .far{
+   font-size: 50px;
+   padding-left: 150px;
+ }
+ .far:hover{
+   color: #F76EC4;
+ }
+
+ .reallyDislike{
+   display: none;
+ }
+ .likeDisplay{
+   padding-top: 30px;
+   font-size: 30px;
+   display:block;
+   padding-left: 70px;
+   color: red;
+ }
+
+
+ .orderWrap{
+   background-color:#F7F4F6;
+   padding: 15px;
+   padding-bottom: 30px;
+ }
+
+ .active{
+   display:block;
+ }
+ .passive{
+   display: none;
+   color:red;
+ }
+ 
+ .confirmPrice {
+  background-color:#D8D7DF;
+  padding: 15px;
+ }
+
+ .orderBtn{
+   display: block
+ }
