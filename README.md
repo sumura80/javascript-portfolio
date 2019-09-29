@@ -29,6 +29,7 @@
 18. チェックボックスの有無で表示を変更(checked)
 19. 属性の追加と変更(setAttirbute())
 20. Radioボタンにより表示を変更(classNameの追加add() と削除remove())
+21. 画面先頭までスクロール(scrollTop)
 ```
 
 
